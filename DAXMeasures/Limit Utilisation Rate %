@@ -1,0 +1,4 @@
+Limit Utilisation Rate % = 
+DIVIDE(
+    SUM(WithdrawalAmounts[WithdrawalAmounts]),
+    SUM(AverageLimits[TotalLimits]))
