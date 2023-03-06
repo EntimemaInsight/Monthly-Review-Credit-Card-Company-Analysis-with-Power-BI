@@ -1,0 +1,90 @@
+declare @CurrentDate date = getdate();
+declare @FirstOfMonth date = case when day(getdate())=1 then DATEADD(DAY,1,EOMONTH(@CurrentDate,-2)) else DATEADD(DAY,1,EOMONTH(@CurrentDate,-1)) end; 
+
+
+With Payments AS
+(
+SELECT --ContractNumber,--, OfferSK,
+CONVERT(DATE, CDATE) AS [Date], 
+Case 
+	When Product = 'AxiES'
+		Then 'AXI ES'
+	When Product = 'AxiES - 2'
+		Then 'AXI ES'
+ELSE Product
+END As Product,
+--CASE	
+--	WHEN Notes = 'vpos'
+--		THEN 'Vpos'
+--	WHEN Notes = 'Santander'
+--		THEN 'Bank Santander'
+--	WHEN Notes = 'Caixa'
+--		THEN 'CAIXA'
+--	ELSE Notes
+--END AS Notes,
+SUM(Amount) AS Amount
+	FROM (SELECT fo.offersysid, 
+	p.Name AS Product, 
+	--ContractNumber,
+	Partner AS Notes, 
+	fo.CDATE, 
+	Amount
+			FROM dwh.FactFinanceOperations fo
+			JOIN dwh.DimFOAdditionalData fad ON fad.FinanceOperationSK = fo.FinanceOperationSK
+			--JOIN dwh.DimCards dc ON dc.OfferSK = fo.OfferSK
+			--JOIN dwh.DimPaymentPartners pp ON pp.PaymentPartnersSK = fo.PaymentPartnersSK
+			JOIN dwh.DimOfferHist do ON do.OfferSYSID = FO.offersysid
+			JOIN dwh.DimProduct p ON p.ProductSK = do.ProductSK
+			WHERE FinOperationSK = '1' 
+			--AND CONVERT(DATE, fo.CDATE, 4) >= DATEADD(month, DATEDIFF(month, 0, GETDATE()), 0)
+			AND CONVERT(DATE, fo.CDate, 4) between '2022-01-01' and DATEADD(day, -1, CAST(GETDATE() AS date))
+	        --AND CONVERT(DATE, fo.CDate, 4) <= @CurrentDate
+			--AND ActivationDate IS NOT NULL
+			--and fo.OfferSK = 14725
+			AND do.Latest= 1
+			) AS Result
+  GROUP BY
+  --ContractNumber,
+   --OfferSK,
+  Product,
+  Notes,CONVERT(DATE, CDATE)
+  --ORDER BY Date, Product
+  ),
+
+  Winn_Reversal as
+  (
+  Select
+CONVERT(date, fct.CDate) AS Date
+,Case 
+	When p.Name = 'AxiES'
+		Then 'AXI ES'
+	When p.Name = 'AxiES - 2'
+		Then 'AXI ES'
+ELSE p.Name
+END As Product
+--,'Winnings/Reversal' AS Notes
+--,tc.Name AS TransactionChanel
+, SUM(AmountTransactionBilling) AS Amount
+--COUNT(AmountTransactionBilling) AS CountTransaction 
+from dwh.FactCardTransactions fct
+JOIN dwh.DimCardsHist ch ON ch.CardSYSID = fct.CardSYSID
+JOIN dwh.DimOfferHist oh ON oh.OfferSYSID = ch.OfferSYSID
+JOIN dwh.DimProduct p ON p.ProductSK = oh.ProductSK
+JOIN dwh.DimTransactionChannels tc ON tc.TransactionChannelSK = fct.TransactionChannelSK
+WHERE 
+		    CONVERT(DATE, fct.CDate) >= '2021-01-01' 
+	        AND CONVERT(DATE, fct.CDate) <= '2023-01-31'
+	       AND tc.Name NOT IN ('BALANCE', 'PIN_CHANGE') 
+		   AND AmountTransactionBilling > 0 
+		   AND ResponseCodeSK = 1
+		   AND ch.Latest = 1
+		   AND oh.Latest = 1
+ GROUP BY  CONVERT(date, fct.CDate), tc.Name
+ ,p.Name
+  )
+
+  Select *
+From Payments
+	Union All
+Select * 
+From Winn_Reversal
