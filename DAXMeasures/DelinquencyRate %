@@ -1,0 +1,4 @@
+DelinquencyRate % = 
+ DIVIDE(
+     sum(Overdue[OverdueClients]),
+     sum(Overdue[TotalClients]))
