@@ -1,0 +1,16 @@
+TotalRevenue = 
+VAR Result = 
+   SUMMARIZE(
+      'FinanceCharges',
+      'FinanceCharges'[Date],
+      'FinanceCharges'[Accural],
+      "Sum of Amount", SUM('FinanceCharges'[Amount])
+   )
+RETURN
+   IF(
+        ISBLANK(
+               SUMX(Result, [Sum of Amount])
+        ),
+        "Missing Data",
+        SUMX(Result, [Sum of Amount])
+)
