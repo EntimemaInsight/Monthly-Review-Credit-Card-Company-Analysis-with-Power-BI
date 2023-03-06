@@ -1,0 +1,12 @@
+YTD = IF(
+    ISBLANK(
+        TOTALYTD(
+            '#Measure'[TotalRevenue],
+            'CalendarTable'[Date])
+    ),
+    "Missing Data",
+    TOTALYTD(
+            '#Measure'[TotalRevenue],
+            'CalendarTable'[Date])
+
+)
