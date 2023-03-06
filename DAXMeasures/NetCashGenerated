@@ -1,0 +1,4 @@
+NetCashGenerated = 
+var TotalCollectedAmount = SUM(CollectedAmounts[CollectedAmounts])
+var TotalWithdrawalAmount = SUM(WithdrawalAmounts[WithdrawalAmounts])
+return TotalCollectedAmount - TotalWithdrawalAmount 
