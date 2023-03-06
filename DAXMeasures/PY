@@ -1,0 +1,20 @@
+PY = IF(
+    ISBLANK(
+        CALCULATE(
+            '#Measure'[TotalRevenue],
+            SAMEPERIODLASTYEAR('CalendarTable'[Date])
+        )
+    ), 
+    "Missing Data", 
+    CALCULATE(
+            '#Measure'[TotalRevenue],
+            SAMEPERIODLASTYEAR('CalendarTable'[Date])
+        )
+    )
+
+
+
+
+
+
+
