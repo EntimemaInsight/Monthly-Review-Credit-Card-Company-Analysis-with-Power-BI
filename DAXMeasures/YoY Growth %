@@ -1,0 +1,8 @@
+YoY = 
+IF(
+    ISBLANK(
+        DIVIDE([TotalRevenue]-[PY], [PY])
+        ),
+"Missing Data",
+DIVIDE([TotalRevenue]-[PY], [PY])
+   )
