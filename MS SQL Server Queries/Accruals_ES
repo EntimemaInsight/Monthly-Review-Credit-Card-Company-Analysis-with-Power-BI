@@ -1,0 +1,93 @@
+declare @CurrentDate date = getdate();
+declare @FirstOfMonth date = case when day(getdate())=1 then DATEADD(DAY,1,EOMONTH(@CurrentDate,-2)) else DATEADD(DAY,1,EOMONTH(@CurrentDate,-1)) end; 
+
+
+
+WITH Chargest_NoDicount AS
+(
+SELECT CONVERT(date, ee.CDate) AS Date, 
+Case 
+	When p.Name = 'AxiES'
+		Then 'AXI ES'
+	When p.Name = 'AxiES - 2'
+		Then 'AXI ES'
+ELSE p.Name
+END As Product,
+--o.OfferSK,EasyClientNumber,
+CASE 
+	WHEN fo.Name = 'Мораторна лихва'
+		THEN 'Penalty Interest Rate (PIR)'
+	WHEN fo.Name = 'Наказателна такса'
+		THEN 'Collection Costs (CC)'
+	WHEN fo.Name = 'Начислена лихва 1'
+		THEN 'Contractual Interest Rate (CIR)'
+	WHEN fo.Name = 'Начислена такса Инкастор'
+		THEN 'Other Credit-Related Costs (OCRS)'
+	WHEN fo.Name = 'Неустойка за неизпълнение на договорни задължения'
+		THEN 'Time extension fee (TEF)'
+	WHEN fo.Name = 'Отстъпка'
+		THEN 'Discount'
+ELSE fo.Name
+END AS Accural, 
+	SUM(Amount) AS Amount	
+FROM
+dwh.FactExtraExpenses ee
+JOIN dwh.DimFinOperation fo ON fo.FinOperationSK = ee.FinOperationSK
+JOIN dwh.DimOfferHist o ON o.OfferSYSID = ee.OfferSYSID
+JOIN dwh.DimProduct p ON p.ProductSK = o.ProductSK
+JOIN dwh.DimCardsHist c ON c.CardSYSID = ee.CardSYSID
+WHERE --CONVERT(date, ee.CDate) >= DATEADD(month, DATEDIFF(month, 0, GETDATE()), 0)
+		        CONVERT(DATE, ee.CDate, 4) >= @FirstOfMonth 
+	        AND CONVERT(DATE, ee.CDate, 4) <= @CurrentDate
+			AND ee.FinOperationSK IN (3,4,5,6,7,10,11,36,44,45,54) --remove Discount 9
+		    AND o.Latest = 1
+			AND c.Latest = 1
+			--AND EasyClientNumber = 14001338
+GROUP BY-- o.OfferSK,EasyClientNumber, 
+CONVERT(date, ee.CDate), p.Name, fo.Name
+),
+
+
+
+Discount_Minus_OneDay AS
+(
+SELECT --CONVERT(date, ee.CDate) AS Date, 
+--o.OfferSK,EasyClientNumber,
+CONVERT(DATE,DATEADD(day, -1, ee.CDate)) as Date, 
+Case 
+	When p.Name = 'AxiES'
+		Then 'AXI ES'
+	When p.Name = 'AxiES - 2'
+		Then 'AXI ES'
+ELSE p.Name
+END As Product,
+CASE 
+	WHEN fo.Name = 'Отстъпка'
+		THEN 'Discount'
+ELSE fo.Name
+END AS Accural, 
+	SUM(IIF(ee.FinOperationSK = 9, Amount * -1, Amount)) AS Amount
+FROM
+dwh.FactExtraExpenses ee
+JOIN dwh.DimFinOperation fo ON fo.FinOperationSK = ee.FinOperationSK
+JOIN dwh.DimOfferHist o ON o.OfferSYSID = ee.OfferSYSID
+JOIN dwh.DimProduct p ON p.ProductSK = o.ProductSK
+JOIN dwh.DimCardsHist c ON c.CardSYSID = ee.CardSYSID
+WHERE --CONVERT(date, ee.CDate) >= DATEADD(month, DATEDIFF(month, 0, GETDATE()), 0)
+		        CONVERT(DATE,DATEADD(day, -1, ee.CDate)) >= '2021-01-01' 
+	        AND CONVERT(DATE,DATEADD(day, -1, ee.CDate)) <= '2023-02-28'
+			AND ee.FinOperationSK = 9 --IN (3,4,5,6,7,9,10,11,36,44,45,54) --remove Discount 9
+		    AND o.Latest = 1
+			AND c.Latest = 1
+			--AND EasyClientNumber = 14001338
+GROUP BY-- o.OfferSK,EasyClientNumber, 
+CONVERT(date, ee.CDate), p.Name, fo.Name, DATEADD(day, -1, ee.CDate)
+)
+
+
+
+Select * 
+from Chargest_NoDicount cnod
+Union ALL
+Select 
+* from Discount_Minus_OneDay
