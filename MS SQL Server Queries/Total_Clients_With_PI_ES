@@ -1,0 +1,19 @@
+DECLARE @FilterDate date = '2023-01-01';
+
+SELECT 
+    @FilterDate AS filter_date
+   , COUNT(DISTINCT ClientID) AS clients_with_PI
+	
+FROM (
+    SELECT 
+        ClientID,
+        MIN(CONVERT(date, ee.cdate)) AS first_date,
+        SUM(amount) AS amount 
+    FROM dwh.FactExtraExpenses AS ee
+    JOIN dwh.DimCardsHist AS dch ON ee.OfferSYSID = dch.OfferSYSID
+    JOIN dwh.DimClientHist AS ch ON ch.ClientSYSID = dch.ClientSYSID 
+    JOIN dwh.DimFinOperation AS fo ON ee.FinOperationSK = fo.FinOperationSK
+    WHERE fo.FinOperationSK = 6
+	AND CONVERT(DATE, ee.CDate, 4) <= @FilterDate
+    GROUP BY ClientID, amount
+) AS subquery
