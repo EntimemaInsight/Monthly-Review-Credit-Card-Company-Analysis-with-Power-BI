@@ -1,0 +1,5 @@
+AVGCharges = 
+    DIVIDE('#Measure'[TotalRevenue],
+    SUM(TotalClients[TotalClients])
+
+)
