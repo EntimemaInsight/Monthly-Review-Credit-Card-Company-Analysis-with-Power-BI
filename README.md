@@ -1,6 +1,6 @@
 # Monthly Review: Credit Card Company Analysis with Power BI
 
-This repository contains a Power BI presentation project that provides a monthly review of credit card sales data from a credit card company. The presentation includes revenue, collection, sales and withdrawal vs. collection analyses to provide insights and recommendations for the company's future strategy. The project includes the following components:
+This repository contains a Power BI presentation project that provides a monthly review of a credit card company. The presentation includes revenue, collection, sales and withdrawal vs. collection analyses to provide insights and recommendations for the company's future strategy. The project includes the following components:
 
 - A Power BI file that includes multiple visualizations and interactive dashboards.
 - Monthly sample data files in Excel format, which contains the data used in the project.
