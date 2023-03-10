@@ -71,12 +71,14 @@ README.md: This file, providing an overview of the project and instructions for 
 ## Data Source
 The data used in this project is entirely fictional and intended solely for demonstration purposes. The data represents a sample of credit card sales data from a credit card company over the course of two years.
 
-## Monthly Review
-Each month's review includes the following components:
+## Key Insights
+Each month's review includes the following components/key insights:
 
 1. Revenue Analysis: This section includes visualizations and analyses of revenue by accruals. Key insights can be obtained into the impact of accruals on the overall revenue of the credit card company. For example, if the penalty interest accruals are high, this may indicate a high delinquency rate among customers and the need for improved collections processes. Similarly, if the collection costs accruals are high, this may indicate that the company is incurring high costs associated with collecting payments from customers and the need for streamlining the collections process. 
 
-2. Collection Analysis: This section includes visualizations and analyses of collections by region, payment type, and customer segment. Key insights from this section may include identifying regions with the highest and lowest collections, payment types that are most and least popular, and customer segments that have the highest and lowest collections.
+2. Collection Analysis: The Collection Analysis section of the monthly review includes visualizations and analyses of the credit card company's collection processes. The section includes analyses of collection rates by bucket and overdue clients structure. By analyzing collection rates by bucket, key insights can be obtained into the company's collection processes and effectiveness. For example, the analysis may identify which buckets have the highest and lowest collection rates, enabling the company to focus on improving collections in the least effective areas.
+
+Similarly, analyzing overdue clients structure can provide insights into the effectiveness of the company's collections processes. For example, if the analysis identifies a high proportion of clients that are frequently overdue, this may indicate that the company needs to improve its collections processes and reduce the delinquency rate.
 
 3. Sales Analysis: This section includes visualizations and analyses of sales by product type, region, and customer segment. Key insights from this section may include identifying the most popular product types, regions with the highest and lowest sales, and customer segments that make the most and least purchases.
  
