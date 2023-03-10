@@ -32,36 +32,43 @@ I. ExcelSources:
  7. DelinquencyRate.xlsx
  8. NewActivatedClients.xlsx
  9. OverdueClients.xlsx
-│   ├── ShareOfApprove.xlsx
-│   ├── TotalClients.xlsx
-│   ├── UtilisationRate.xlsx
-│   └── АverageLimits.xlsx
-├── MS SQL Server Queries/
-│   ├── Accruals_ES.sql
-│   ├── Approved_ES.sql
-│   ├── Closed_Cards_ES.sql
-│   ├── Collected_Amounts_ES.sql
-│   ├── Total_Clients_With_PI_ES.sql
-│   └── Withdrawal_Amounts_ES.sql
-├── DAX Measures/
-│   ├── AVGCharges.dax
-│   ├── DelinquencyRate %.dax
-│   ├── Limit Utilisation Rate %.dax
-│   ├── NetCashGenerated.dax
-│   ├── PY.dax
-│   ├── TotalRevenue.dax
-│   ├── YTD.dax
-│   └── YoY Growth %.dax
-├── Images/
-│   ├── Main KPIs.jpg
-│   ├── Additional KPIs.jpg
-│   ├── Collected MDP by Buckets.jpg
-│   ├── Overdue Dynamics.jpg
-│   ├── Approved Clients.jpg
-│   ├── Digital Channels.jpg
-│   └── Collected vs. Withdrawal Amounts.jpg
-├── CreditCardSalesMonthly.pbix
-└── README.md
+10. ShareOfApprove.xlsx
+11. TotalClients.xlsx
+12. UtilisationRate.xlsx
+13. АverageLimits.xlsx
+
+II. MS SQL Server Queries
+
+ 1. Accruals_ES.sql
+ 2. Approved_ES.sql
+ 3. Closed_Cards_ES.sql
+ 4. Collected_Amounts_ES.sql
+ 5. Total_Clients_With_PI_ES.sql
+ 6. Withdrawal_Amounts_ES.sql
+
+III. DAX Measures
+
+ 1. AVGCharges.dax
+ 2. DelinquencyRate %.dax
+ 3. Limit Utilisation Rate %.dax
+ 4. NetCashGenerated.dax
+ 5. PY.dax
+ 6. TotalRevenue.dax
+ 7. YTD.dax
+ 8. YoY Growth %.dax
+
+IV. Images
+
+ 1. Main KPIs.jpg
+ 2. Additional KPIs.jpg
+ 3. Collected MDP by Buckets.jpg
+ 4. Overdue Dynamics.jpg
+ 5. Approved Clients.jpg
+ 6. Digital Channels.jpg
+ 7. Collected vs. Withdrawal Amounts.jpg
+ 8. CreditCardSalesMonthly.pbix
+
+V. README.md
 
 ExcelSources/: Folder containing the Excel sources used in the project.
 MS SQL Server Queries/: Folder containing the MS SQL Server queries used to retrieve the data from the company's database.
