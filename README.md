@@ -19,17 +19,17 @@ To use the Power BI file, follow these steps:
 
 The project is organized as follows:
 
-Monthly Review: Credit Card Sales Analysis with Power BI and SQL Queries/
-├── Sample Data/
-│   ├── ActiveClients.xlsx
-│   ├── AverageNewGrantedLimit.xlsx
-│   ├── CollectedAllBuckets.xlsx
-│   ├── CollectedBucket1.xlsx
-│   ├── ConversionRateAffiliates.xlsx
-│   ├── ConversionRateOnline.xlsx
-│   ├── DelinquencyRate.xlsx
-│   ├── NewActivatedClients.xlsx
-│   ├── OverdueClients.xlsx
+Monthly Review: Credit Card Company Analysis with Power BI
+I. ExcelSources:
+ 1. ActiveClients.xlsx
+ 2. AverageNewGrantedLimit.xlsx
+ 3. CollectedAllBuckets.xlsx
+ 4. CollectedBucket1.xlsx
+ 5. ConversionRateAffiliates.xlsx
+ 6. ConversionRateOnline.xlsx
+ 7. DelinquencyRate.xlsx
+ 8. NewActivatedClients.xlsx
+ 9. OverdueClients.xlsx
 │   ├── ShareOfApprove.xlsx
 │   ├── TotalClients.xlsx
 │   ├── UtilisationRate.xlsx
