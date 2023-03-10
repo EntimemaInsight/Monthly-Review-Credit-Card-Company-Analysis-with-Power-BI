@@ -1,18 +1,18 @@
+# MONTHLY 
+
 ## I. Presentation Object
 
 
 
-
-
-# II. Data Sourses 
+## II. Data Sourses 
 
 fghh
 
-# III. Technical Approaches
+## III. Technical Approaches
 
 fggg
 
-# IV. Interaction/Visualization Goals
+## IV. Interaction/Visualization Goals
 
 fggg
 
