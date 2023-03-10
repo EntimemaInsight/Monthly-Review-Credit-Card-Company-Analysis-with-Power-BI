@@ -1,6 +1,6 @@
 # Monthly Review: Credit Card Company Analysis with Power BI
 
-This repository contains a Power BI presentation project that provides a monthly review of a credit card company. The presentation includes revenue, collection, sales and withdrawal vs. collection analyses to provide insights and recommendations for the company's future strategy. The project includes the following components:
+This repository contains a Power BI presentation project that provides a monthly review of a credit card company. The presentation includes revenue, collection, sales and collection vs. withdrawal analyses to provide insights and recommendations for the company's future strategy. The project includes the following components:
 
 - A Power BI file that includes multiple visualizations and interactive dashboards.
 - Monthly sample data files in Excel format, which contains the data used in the project.
@@ -93,5 +93,12 @@ Each month's review includes the following components/key insights:
    The Sales Analysis section of the monthly review includes visualizations and analyses of the credit card company's sales performance, including insights into approved/new activated clients and digital channels.
    By analyzing approved clients, key insights can be obtained into the company's credit approval process and effectiveness. For example, the analysis may identify which customer segments have the highest and lowest approval rates, enabling the company to optimize its credit approval process. Similarly, analyzing new activated clients can provide insights into the effectiveness of the company's sales processes. For example, if the analysis identifies a high proportion of new clients who do not activate their cards, this may indicate that the company needs to improve its onboarding process.
    Analyzing digital channels, such as conversion rates by affiliates and online channels, can provide insights into the effectiveness of the company's digital marketing and sales strategies. For example, if the analysis identifies a low conversion rate for a particular affiliate or online channel, the company can optimize its marketing and sales strategies for that channel.   
+   
+4. Collected vs. Withdrawal Analysis:
+   The Collected vs. Withdrawal Analysis section of the monthly review includes visualizations and analyses of the credit card company's cash flow, including insights into collected amount, withdrawal amount, and net cash generated. 
+   By analyzing collected amounts, key insights can be obtained into the effectiveness of the company's collections processes. For example, the analysis may identify which payment methods or customer segments have the highest and lowest collection rates, enabling the company to optimize its collections processes.
+   Similarly, analyzing withdrawal amounts can provide insights into the effectiveness of the company's credit extension processes. For example, if the analysis identifies a high proportion of clients who withdraw cash, this may indicate that the company needs to improve its credit extension processes and reduce the risk of defaults.
+   Analyzing net cash generated can provide insights into the company's overall cash flow and profitability. For example, if the analysis identifies a negative net cash generated for a particular period, the company can take steps to improve its cash flow and profitability.
+
  
  
