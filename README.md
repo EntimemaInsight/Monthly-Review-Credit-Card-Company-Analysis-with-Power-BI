@@ -77,7 +77,7 @@ Images/: Folder containing the dashboards used in the project.
 CreditCardSalesMonthly.pbix: Power BI file containing the visualizations and dashboards for the presentation.
 README.md: This file, providing an overview of the project and instructions for use.
 
-## Data Source
+## Usage
 The data used in this project is entirely fictional and intended solely for demonstration purposes. The data represents a sample of credit card sales data from a credit card company over the course of two years.
 
 ## Key Insights
