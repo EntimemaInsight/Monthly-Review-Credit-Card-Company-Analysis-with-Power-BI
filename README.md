@@ -12,8 +12,7 @@ This repository contains a Power BI presentation project that provides a monthly
 To use the Power BI file, follow these steps:
 
 1. Open the PBI_MonthlyReview.pbix file in Power BI desktop.
-2. Refresh the data in the file by connecting to your own data source or updating the existing connection to the included sample data files.
-3. Interact with the visualizations and dashboards to explore the data and insights. 
+2. Interact with the visualizations and dashboards to explore the data and insights. 
 
 ## Project Structure
 
@@ -99,6 +98,3 @@ Each month's review includes the following components/key insights:
    By analyzing collected amounts, key insights can be obtained into the effectiveness of the company's collections processes. For example, the analysis may identify which payment methods or customer segments have the highest and lowest collection rates, enabling the company to optimize its collections processes.
    Similarly, analyzing withdrawal amounts can provide insights into the effectiveness of the company's credit extension processes. For example, if the analysis identifies a high proportion of clients who withdraw cash, this may indicate that the company needs to improve its credit extension processes and reduce the risk of defaults.
    Analyzing net cash generated can provide insights into the company's overall cash flow and profitability. For example, if the analysis identifies a negative net cash generated for a particular period, the company can take steps to improve its cash flow and profitability.
-
- 
- 
