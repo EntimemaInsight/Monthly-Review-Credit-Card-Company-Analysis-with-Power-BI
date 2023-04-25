@@ -99,3 +99,8 @@ Each month's review includes the following components/key insights:
    By analyzing collected amounts, key insights can be obtained into the effectiveness of the company's collections processes. For example, the analysis may identify which payment methods or customer segments have the highest and lowest collection rates, enabling the company to optimize its collections processes.
    Similarly, analyzing withdrawal amounts can provide insights into the effectiveness of the company's credit extension processes. For example, if the analysis identifies a high proportion of clients who withdraw cash, this may indicate that the company needs to improve its credit extension processes and reduce the risk of defaults.
    Analyzing net cash generated can provide insights into the company's overall cash flow and profitability. For example, if the analysis identifies a negative net cash generated for a particular period, the company can take steps to improve its cash flow and profitability.
+   
+
+## Credits
+
+This project was created by Aleksandar Dimitrov and is licensed under the MIT License.
