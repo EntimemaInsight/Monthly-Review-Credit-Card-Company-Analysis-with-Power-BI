@@ -6,6 +6,10 @@ This repository contains a Power BI presentation project that provides a monthly
 - Monthly sample data files in Excel format, which contains the data used in the project.
 - SQL query files that were used to retrieve the data.
 - A README file that provides an overview of the project and instructions for using the Power BI file.
+
+## Usage
+The data used in this project is entirely fictional and intended solely for demonstration purposes. The data represents a sample of credit card sales data from a credit card company over the course of two years.
+
  
 ## Getting Started
 
@@ -75,9 +79,6 @@ DAX Measures/: Folder containing the DAX measures used in the project.
 Images/: Folder containing the dashboards used in the project.
 CreditCardSalesMonthly.pbix: Power BI file containing the visualizations and dashboards for the presentation.
 README.md: This file, providing an overview of the project and instructions for use.
-
-## Usage
-The data used in this project is entirely fictional and intended solely for demonstration purposes. The data represents a sample of credit card sales data from a credit card company over the course of two years.
 
 ## Key Insights
 Each month's review includes the following components/key insights:
